@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Numbers 1 to 5 Using While Loop</h2>
+<p id="demo"></p>
+<script>
+let text = "";
+let i = 1;
+while (i < 6) {
+    text += "<br>" + i;
+    i++;
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+<h2>Even Numbers Less Than 10 Using For Loop</h2>
+<p id="even"></p>
+<script>
+let evenText = "";
+for (let j = 0; j < 10; j++) {
+  if (j % 2 === 0) {
+    evenText += "<br>" + j;
+  }
+}
+document.getElementById("even").innerHTML = evenText;
+</script>
+
+<h2>Check if a Number is Even or Odd</h2>
+<form id="frm1" onsubmit="check(event)">
+  Enter a number: <input type="text" id="input" name="number"><br><br>
+  <button type="submit">Check</button>
+</form>
+<p id="odd"></p>
+<script>
+function check(event) {
+  event.preventDefault();
+  const number = document.getElementById("input").value;
+  const result = document.getElementById("odd");
+  if (!isNaN(number) && number.trim() !== "") {
+    let evenOdd;
+    if (number % 2 === 0) {
+      evenOdd = "even";
+    } else {
+      evenOdd = "odd";
+    }
+    result.innerHTML = "The number " + number + " is " + evenOdd + ".";
+  } else {
+    result.innerHTML = "Please enter a valid number.";
+  }
+}
+</script>
+
+<h2>Check User Eligibility for Discount</h2>
+<form id="frm2" onsubmit="discount(event)">
+  Enter your age: <input type="text" id="input2" name="eligibility"><br><br>
+  <button type="submit">Check</button>
+</form>
+<p id="eligible"></p>
+<script>
+  function discount(event) {
+    event.preventDefault();
+    const age = document.getElementById("input2").value;
+    const result2 = document.getElementById("eligible");
+    if (!isNaN(age) && age.trim() !== "") {
+      if (age >= 18) {
+        result2.innerHTML = "You are eligible for a discount.";
+      } else {
+        result2.innerHTML = "You are not eligible for a discount.";
+      }
+    } else {
+      result2.innerHTML = "Please enter a valid age.";
+    }
+  }
+</script>
+
+</body>
+</html>
